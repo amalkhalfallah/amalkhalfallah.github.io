@@ -1,6 +1,6 @@
 # fichier pour les robots du site https://amalkhalfallah.github.io/
 User-Agent: * 
 Disallow: /intranet/ 
-Disallow: /login.php 
+Disallow: /
 Allow: /*.css?* 
-Sitemap: http://www.adressedevotresite.com/sitemap_index.xml 
+Sitemap: https://amalkhalfallah.github.io/index.html
