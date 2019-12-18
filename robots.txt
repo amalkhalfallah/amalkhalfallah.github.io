@@ -1,4 +1,4 @@
 # fichier pour les robots du site https://amalkhalfallah.github.io/
-User-Agent: * 
-Allow: /*.css?* 
+User-agent: *
+Allow: / 
 Sitemap: https://amalkhalfallah.github.io/index.html
