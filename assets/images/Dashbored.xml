@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.dashboard.tn" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DashboredService" targetNamespace="http://ws.dashboard.tn">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.dashboard.tn" elementFormDefault="unqualified" targetNamespace="http://ws.dashboard.tn" version="1.0">
+
+  <xs:element name="AfficherinformationEtudiant" type="tns:AfficherinformationEtudiant"/>
+
+  <xs:element name="AfficherinformationEtudiantResponse" type="tns:AfficherinformationEtudiantResponse"/>
+
+  <xs:element name="CreeCompteDashbored" type="tns:CreeCompteDashbored"/>
+
+  <xs:element name="CreeCompteDashboredResponse" type="tns:CreeCompteDashboredResponse"/>
+
+  <xs:element name="afficherEtudiantInscrits" type="tns:afficherEtudiantInscrits"/>
+
+  <xs:element name="afficherEtudiantInscritsResponse" type="tns:afficherEtudiantInscritsResponse"/>
+
+  <xs:element name="etudiant" type="tns:etudiant"/>
+
+  <xs:element name="validerCompteDashBored" type="tns:validerCompteDashBored"/>
+
+  <xs:element name="validerCompteDashBoredResponse" type="tns:validerCompteDashBoredResponse"/>
+
+  <xs:complexType name="afficherEtudiantInscrits">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="afficherEtudiantInscritsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="etudiantsInscrits" type="tns:etudiant"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="etudiant">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateNaissance" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="nom" type="xs:string"/>
+      <xs:element minOccurs="0" name="prenom" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="numeroEtudiant" type="xs:long" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="validerCompteDashBored">
+    <xs:sequence>
+      <xs:element name="codeValidation" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="validerCompteDashBoredResponse">
+    <xs:sequence>
+      <xs:element name="numeroConfirmation" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CreeCompteDashbored">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="etudiant" type="tns:etudiant"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CreeCompteDashboredResponse">
+    <xs:sequence>
+      <xs:element name="CodeValidation" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AfficherinformationEtudiant">
+    <xs:sequence>
+      <xs:element name="numeroEtudiant" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AfficherinformationEtudiantResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="informationEtudiant" type="tns:etudiant"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="validerCompteDashBored">
+    <wsdl:part element="tns:validerCompteDashBored" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AfficherinformationEtudiantResponse">
+    <wsdl:part element="tns:AfficherinformationEtudiantResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validerCompteDashBoredResponse">
+    <wsdl:part element="tns:validerCompteDashBoredResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreeCompteDashboredResponse">
+    <wsdl:part element="tns:CreeCompteDashboredResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="afficherEtudiantInscritsResponse">
+    <wsdl:part element="tns:afficherEtudiantInscritsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="afficherEtudiantInscrits">
+    <wsdl:part element="tns:afficherEtudiantInscrits" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreeCompteDashbored">
+    <wsdl:part element="tns:CreeCompteDashbored" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AfficherinformationEtudiant">
+    <wsdl:part element="tns:AfficherinformationEtudiant" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DashboardPortType">
+    <wsdl:operation name="afficherEtudiantInscrits">
+      <wsdl:input message="tns:afficherEtudiantInscrits" name="afficherEtudiantInscrits">
+    </wsdl:input>
+      <wsdl:output message="tns:afficherEtudiantInscritsResponse" name="afficherEtudiantInscritsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validerCompteDashBored">
+      <wsdl:input message="tns:validerCompteDashBored" name="validerCompteDashBored">
+    </wsdl:input>
+      <wsdl:output message="tns:validerCompteDashBoredResponse" name="validerCompteDashBoredResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreeCompteDashbored">
+      <wsdl:input message="tns:CreeCompteDashbored" name="CreeCompteDashbored">
+    </wsdl:input>
+      <wsdl:output message="tns:CreeCompteDashboredResponse" name="CreeCompteDashboredResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AfficherinformationEtudiant">
+      <wsdl:input message="tns:AfficherinformationEtudiant" name="AfficherinformationEtudiant">
+    </wsdl:input>
+      <wsdl:output message="tns:AfficherinformationEtudiantResponse" name="AfficherinformationEtudiantResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DashboredServiceSoapBinding" type="tns:DashboardPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="afficherEtudiantInscrits">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="afficherEtudiantInscrits">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="afficherEtudiantInscritsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validerCompteDashBored">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="validerCompteDashBored">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validerCompteDashBoredResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreeCompteDashbored">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="CreeCompteDashbored">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreeCompteDashboredResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AfficherinformationEtudiant">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="AfficherinformationEtudiant">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AfficherinformationEtudiantResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DashboredService">
+    <wsdl:port binding="tns:DashboredServiceSoapBinding" name="DashboredPort">
+      <soap:address location="http://localhost:9080/SOA2018/Dashbored"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
